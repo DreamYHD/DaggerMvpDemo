@@ -1,10 +1,8 @@
 package com.androidlab.daggermvpdemo.mvp;
 
-import android.media.tv.TvContentRating;
 
 import javax.inject.Inject;
 
-import dagger.Module;
 
 /**
  * Created by Haodong on 2017/3/22.
@@ -21,12 +19,14 @@ public class DaggerPresenter implements DaggerContract.Presenter {
 
         this.mView=mView;
         this.mId=mId;
+        mView.setPresenter(this);
 
     }
 
     @Override
     public void start() {
         mView.showText();
+
 
     }
 }

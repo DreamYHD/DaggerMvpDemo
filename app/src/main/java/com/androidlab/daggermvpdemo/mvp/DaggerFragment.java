@@ -3,10 +3,12 @@ package com.androidlab.daggermvpdemo.mvp;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidlab.daggermvpdemo.R;
 
@@ -17,7 +19,7 @@ import com.androidlab.daggermvpdemo.R;
 public class DaggerFragment  extends Fragment implements DaggerContract.View {
     private DaggerContract.Presenter mPresenter;
 
-    TextView mTextView;
+    private TextView mTextView;
 
     @Override
     public void setPresenter(DaggerContract.Presenter Presenter) {
@@ -35,14 +37,15 @@ public class DaggerFragment  extends Fragment implements DaggerContract.View {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.frag_dagger,container,false);
-        mTextView= (TextView) view.findViewById(R.id.text);
+        mTextView= (TextView) view.findViewById(R.id.text_show);
         return view;
     }
 
     @Override
     public void showText() {
-        mTextView.setText("helloWorld");
-
+        mTextView.setText("helloworld"+"..");
+        Log.e("TGA","helloworld");
+        Toast.makeText(getContext(), "hello", Toast.LENGTH_SHORT).show();
 
     }
 }
