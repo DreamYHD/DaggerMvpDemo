@@ -1,6 +1,9 @@
 package com.androidlab.daggermvpdemo.dagger;
 
-import com.androidlab.daggermvpdemo.ui.activity.GankActivity;
+import android.app.Activity;
+
+
+import com.androidlab.daggermvpdemo.ui.activity.MainActivity;
 
 import dagger.Component;
 
@@ -10,5 +13,5 @@ import dagger.Component;
 
 @Component(modules = GankPresenterModule.class)
 public interface GankComponent {
-    void inject(GankActivity activity);
+    void inject(MainActivity activity);
 }

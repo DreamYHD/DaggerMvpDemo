@@ -12,6 +12,6 @@ import rx.Observable;
 
 public interface GankApi {
 
-    @GET("{month}/{day}")
-    Observable<Gank>getGank(@Path("month")int month,@Path("day")int day);
+    @GET("{num}")
+    Observable<Gank>getGank(@Path("num")int num);
 }

@@ -4,31 +4,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.androidlab.daggermvpdemo.R;
-import com.androidlab.daggermvpdemo.mvp.DaggerMainComponent;
+import com.androidlab.daggermvpdemo.dagger.DaggerGankComponent;
 import com.androidlab.daggermvpdemo.dagger.GankPresenter;
 import com.androidlab.daggermvpdemo.dagger.GankPresenterModule;
-import com.androidlab.daggermvpdemo.ui.fragment.DaggerFragment;
+import com.androidlab.daggermvpdemo.ui.fragment.GankFragment;
 import com.androidlab.daggermvpdemo.utils.ActivityUtils;
 
 import javax.inject.Inject;
 
-public class GankActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity {
     @Inject
     GankPresenter mDaggerPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dagger);
-        DaggerFragment addEditTaskFragment=new DaggerFragment();
+        setContentView(R.layout.activity_main);
+        GankFragment gankFragment=GankFragment.getInstance();
         ActivityUtils.addFragmentToActivity(getSupportFragmentManager(),
-                addEditTaskFragment,R.id.frame_all);
-        DaggerMainComponent.builder()
-                .presenterModule(new GankPresenterModule(addEditTaskFragment,"ID"))
+                gankFragment,R.id.repalce);
+        DaggerGankComponent.builder()
+                .gankPresenterModule(new GankPresenterModule(gankFragment,"1"))
                 .build()
                 .inject(this);
-
-
 
     }
 }

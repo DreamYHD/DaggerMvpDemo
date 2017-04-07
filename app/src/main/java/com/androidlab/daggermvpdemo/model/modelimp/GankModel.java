@@ -17,7 +17,7 @@ public class GankModel implements GankContract.Model {
     public Observable<Gank> getGank() {
         return  GankApiService.getInstance()
                 .getGankApi()
-                .getGank(10,1)
+                .getGank(20)
                 .subscribeOn(SchedulerProvider.getInstance().io())
                 .unsubscribeOn(SchedulerProvider.getInstance().io())
                 .observeOn(SchedulerProvider.getInstance().ui());

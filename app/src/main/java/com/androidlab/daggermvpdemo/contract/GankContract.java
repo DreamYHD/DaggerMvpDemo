@@ -5,6 +5,8 @@ import com.androidlab.daggermvpdemo.base.BasePresenter;
 import com.androidlab.daggermvpdemo.base.BaseView;
 import com.androidlab.daggermvpdemo.model.bean.Gank;
 
+import java.util.List;
+
 import rx.Observable;
 
 /**
@@ -15,13 +17,13 @@ public interface GankContract {
 
     interface View extends BaseView<Presenter>{
 
-        void showText();
+        void showGank(Gank mGank);
 
     }
     interface Model extends BaseModel{
-        Observable <Gank>getGank();
+        Observable <Gank>getGank( );
     }
     abstract class Presenter extends BasePresenter<BaseView,BaseModel>{
-        abstract void getGank();
+        public abstract void getGank();
     }
 }

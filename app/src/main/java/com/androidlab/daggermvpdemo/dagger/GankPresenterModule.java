@@ -20,16 +20,12 @@ public class GankPresenterModule {
         mView = view;
         mId = id;
     }
-
     @Provides
     GankContract.View getView(){
         return mView;
-
     }
     @Provides
     String getId(){
         return mId;
     }
-
-
 }

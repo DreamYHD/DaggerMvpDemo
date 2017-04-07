@@ -16,9 +16,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GankApiService {
 
     private Retrofit mRetrofit;
-    private GankApi mGankApi;
 
-    public static final String BASE_URL="http://gank.io/api/data/%E7%A6%8F%E5%88%A9/";
+    public static final String BASE_URL="http://gank.io/api/random/data/福利/";
     private GankApiService(){
 
 
@@ -29,9 +28,8 @@ public class GankApiService {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BASE_URL)
+                .client(mBuilder.build())
                 .build();
-
-
     }
 
     public static GankApiService getInstance(){

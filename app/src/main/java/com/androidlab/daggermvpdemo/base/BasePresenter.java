@@ -1,5 +1,6 @@
 package com.androidlab.daggermvpdemo.base;
 
+import android.util.Log;
 import android.view.View;
 
 import rx.Subscription;
@@ -10,6 +11,7 @@ import rx.subscriptions.CompositeSubscription;
  */
 
 public class BasePresenter<V extends BaseView,M extends BaseModel> {
+    private static final String TAG = "BasePresenter";
 
     private V mView;
     private M mModel;
@@ -17,15 +19,16 @@ public class BasePresenter<V extends BaseView,M extends BaseModel> {
     //manage rx life
     private CompositeSubscription mSubscription;
 
-    protected void addSubscribe(Subscription subscription){
+    public void addSubscribe(Subscription subscription){
         if (mSubscription==null){
             mSubscription=new CompositeSubscription();
         }
         mSubscription.add(subscription);
     }
-    protected void  unSubscribe(){
+    public void  unSubscribe(){
         if (mView!=null){
             mView=null;
+            Log.e(TAG, "unSubscribe: view null" );
         }
         if (mSubscription!=null&&mSubscription.hasSubscriptions()){
             mSubscription.clear();
