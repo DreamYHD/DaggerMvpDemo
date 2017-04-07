@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.androidlab.daggermvpdemo.mvp.DaggerActivity;
+import com.androidlab.daggermvpdemo.ui.activity.GankActivity;
 
 public class MainActivity extends AppCompatActivity {
     TextView mTextView;
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,DaggerActivity.class);
+                Intent intent=new Intent(MainActivity.this,GankActivity.class);
                 startActivity(intent);
             }
         });

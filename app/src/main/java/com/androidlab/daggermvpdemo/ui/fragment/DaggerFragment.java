@@ -1,4 +1,4 @@
-package com.androidlab.daggermvpdemo.mvp;
+package com.androidlab.daggermvpdemo.ui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,18 +11,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidlab.daggermvpdemo.R;
+import com.androidlab.daggermvpdemo.contract.GankContract;
 
 /**
  * Created by Haodong on 2017/3/22.
  */
 
-public class DaggerFragment  extends Fragment implements DaggerContract.View {
-    private DaggerContract.Presenter mPresenter;
-
+public class DaggerFragment  extends Fragment implements GankContract.View {
+    private GankContract.Presenter mPresenter;
     private TextView mTextView;
 
     @Override
-    public void setPresenter(DaggerContract.Presenter Presenter) {
+    public void setPresenter(GankContract.Presenter Presenter) {
 
         this.mPresenter=Presenter;
     }
@@ -30,7 +30,12 @@ public class DaggerFragment  extends Fragment implements DaggerContract.View {
     @Override
     public void onResume() {
         super.onResume();
-        mPresenter.start();
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
     }
 
     @Nullable

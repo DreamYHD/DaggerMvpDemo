@@ -1,6 +1,6 @@
-package com.androidlab.daggermvpdemo.mvp;
+package com.androidlab.daggermvpdemo.dagger;
 
-import javax.inject.Inject;
+import com.androidlab.daggermvpdemo.contract.GankContract;
 
 import dagger.Module;
 import dagger.Provides;
@@ -10,25 +10,24 @@ import dagger.Provides;
  */
 
 @Module
-public class PresenterModule {
+public class GankPresenterModule {
 
-    private final DaggerContract.View mView;
+    private final GankContract.View mView;
 
     private final String mId;
 
-    public PresenterModule(DaggerContract.View view, String id) {
+    public GankPresenterModule(GankContract.View view, String id) {
         mView = view;
         mId = id;
     }
 
     @Provides
-    DaggerContract.View getView(){
+    GankContract.View getView(){
         return mView;
 
     }
     @Provides
     String getId(){
-
         return mId;
     }
 
