@@ -25,7 +25,7 @@ public interface GankContract {
     interface Model extends BaseModel{
         Observable <Gank>getGank( );
     }
-    abstract class Presenter extends BasePresenter<BaseView,BaseModel>{
+    abstract class Presenter implements BasePresenter{
         public abstract void getGank();
 
     }

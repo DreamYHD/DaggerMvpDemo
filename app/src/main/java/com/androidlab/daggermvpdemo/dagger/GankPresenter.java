@@ -26,12 +26,12 @@ public  class GankPresenter extends GankContract.Presenter {
 
     @Inject
     public GankPresenter(GankContract.View mView, String mId) {
-
-        this.mView=mView;
-        this.mId=mId;
-        mModel= new GankModel();
+        this.mView = mView;
+        this.mId = mId;
+        mModel = new GankModel();
 
     }
+
     @Inject
     void setupListeners() {
         mView.setPresenter(this);
@@ -40,11 +40,11 @@ public  class GankPresenter extends GankContract.Presenter {
 
     @Override
     public void getGank() {
-       Subscription subscription=mModel.getGank()
+        Subscription subscription = mModel.getGank()
                 .subscribe(new Observer<Gank>() {
                     @Override
                     public void onCompleted() {
-                        Log.i(TAG, "onCompleted: success "+mId);
+                        Log.i(TAG, "onCompleted: success " + mId);
                     }
 
                     @Override
@@ -58,6 +58,29 @@ public  class GankPresenter extends GankContract.Presenter {
                     }
                 });
         addSubscribe(subscription);
+
+    }
+    //管理Rx生命周期防止内存泄漏
+
+    private CompositeSubscription mSubscription;
+
+    public void addSubscribe(Subscription subscription) {
+        if (mSubscription == null) {
+            mSubscription = new CompositeSubscription();
+        }
+        mSubscription.add(subscription);
+    }
+
+    public void unSubscribe() {
+        if (mView!=null){
+            mView=null;
+            Log.e(TAG, "unSubscribe: view null" );
+        }
+        if (mSubscription != null && mSubscription.hasSubscriptions()) {
+            mSubscription.clear();
+            Log.e(TAG, "unSubscribe: mSubscription null");
+        }
+
 
     }
 }
