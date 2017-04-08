@@ -19,11 +19,14 @@ public interface GankContract {
 
         void showGank(Gank mGank);
 
+        void showBigImage(String url);
+
     }
     interface Model extends BaseModel{
         Observable <Gank>getGank( );
     }
     abstract class Presenter extends BasePresenter<BaseView,BaseModel>{
         public abstract void getGank();
+
     }
 }

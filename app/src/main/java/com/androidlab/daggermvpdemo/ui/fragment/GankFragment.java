@@ -3,19 +3,18 @@ package com.androidlab.daggermvpdemo.ui.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.androidlab.daggermvpdemo.R;
 import com.androidlab.daggermvpdemo.contract.GankContract;
 import com.androidlab.daggermvpdemo.model.bean.Gank;
 import com.androidlab.daggermvpdemo.ui.adapter.GankAdapter;
+import com.androidlab.daggermvpdemo.ui.widght.BigImageDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +74,21 @@ public class GankFragment extends Fragment implements GankContract.View {
         mGankAdapter.setOnRecyclerViewItemClickListener(new GankAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void clickItem(View view, int position) {
+               showBigImage(mGankList.get(position).getUrl());
+            }
+        });
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
 
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (!ViewCompat.canScrollVertically(recyclerView, 1)) {
+                    mPresenter.getGank();
+                }
             }
         });
         return view;
@@ -84,8 +97,13 @@ public class GankFragment extends Fragment implements GankContract.View {
 
     @Override
     public void showGank(Gank mGank) {
-        mGankList.clear();
         mGankList.addAll(mGank.getResults());
         mGankAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showBigImage(String url) {
+        BigImageDialog bigImageDialog=new BigImageDialog(getContext(),R.style.Dialog,url);
+        bigImageDialog.show();
     }
 }
