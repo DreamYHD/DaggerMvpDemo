@@ -1,4 +1,4 @@
-package com.androidlab.daggermvpdemo.model.bean;
+package com.androidlab.daggermvpdemo.bean;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Haodong on 2017/4/5.
  */
 
-public class Gank {
+public class GankPictureBean {
 
     /**
      * error : false

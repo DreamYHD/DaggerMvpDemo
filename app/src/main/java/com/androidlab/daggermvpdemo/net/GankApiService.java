@@ -1,6 +1,6 @@
-package com.androidlab.daggermvpdemo.model.net;
+package com.androidlab.daggermvpdemo.net;
 
-import com.androidlab.daggermvpdemo.model.bean.Gank;
+import com.androidlab.daggermvpdemo.net.gankPicture.GankApi;
 
 import java.util.concurrent.TimeUnit;
 

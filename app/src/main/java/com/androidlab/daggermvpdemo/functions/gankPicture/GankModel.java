@@ -1,9 +1,7 @@
-package com.androidlab.daggermvpdemo.model.modelimp;
+package com.androidlab.daggermvpdemo.functions.gankPicture;
 
-import com.androidlab.daggermvpdemo.contract.GankContract;
-import com.androidlab.daggermvpdemo.model.bean.Gank;
-import com.androidlab.daggermvpdemo.model.net.GankApiService;
-import com.androidlab.daggermvpdemo.utils.schedulers.BaseScheduleProvider;
+import com.androidlab.daggermvpdemo.bean.GankPictureBean;
+import com.androidlab.daggermvpdemo.net.GankApiService;
 import com.androidlab.daggermvpdemo.utils.schedulers.SchedulerProvider;
 
 import rx.Observable;
@@ -14,7 +12,7 @@ import rx.Observable;
 
 public class GankModel implements GankContract.Model {
     @Override
-    public Observable<Gank> getGank() {
+    public Observable<GankPictureBean> getGank() {
         return  GankApiService.getInstance()
                 .getGankApi()
                 .getGank(20)

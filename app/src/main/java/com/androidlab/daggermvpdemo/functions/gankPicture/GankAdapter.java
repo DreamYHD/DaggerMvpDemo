@@ -1,4 +1,4 @@
-package com.androidlab.daggermvpdemo.ui.adapter;
+package com.androidlab.daggermvpdemo.functions.gankPicture;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.androidlab.daggermvpdemo.R;
-import com.androidlab.daggermvpdemo.model.bean.Gank;
+import com.androidlab.daggermvpdemo.bean.GankPictureBean;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -20,11 +20,11 @@ import java.util.List;
 
 public class GankAdapter extends RecyclerView.Adapter<GankAdapter.ViewHolder> {
 
-    private List<Gank.ResultsBean>mGankList=new ArrayList<>();
+    private List<GankPictureBean.ResultsBean>mGankList=new ArrayList<>();
     private Context mContext;
     private  OnRecyclerViewItemClickListener mOnRecyclerViewItemClickListener;
 
-    public GankAdapter(List<Gank.ResultsBean> gankList, Context context) {
+    public GankAdapter(List<GankPictureBean.ResultsBean> gankList, Context context) {
         mGankList = gankList;
         mContext = context;
     }

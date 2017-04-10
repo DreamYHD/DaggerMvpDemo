@@ -1,12 +1,10 @@
-package com.androidlab.daggermvpdemo.ui.widght;
+package com.androidlab.daggermvpdemo.widght;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleRes;
-import android.support.v4.widget.ViewDragHelper;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -16,8 +14,6 @@ import android.widget.ImageView;
 import com.androidlab.daggermvpdemo.R;
 import com.bumptech.glide.Glide;
 import com.nineoldandroids.view.ViewHelper;
-
-import static android.R.attr.translationY;
 
 /**
  * Created by Haodong on 2017/4/8.

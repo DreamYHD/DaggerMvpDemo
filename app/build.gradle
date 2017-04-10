@@ -30,8 +30,6 @@ dependencies {
     // 添加java 注解库
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
-    compile 'com.google.dagger:dagger:2.4'
-    compile 'org.glassfish:javax.annotation:10.0-b28'
     compile 'com.android.support:support-v4:25.1.0'
     testCompile 'junit:junit:4.12'
     apt 'com.google.dagger:dagger-compiler:2.4'

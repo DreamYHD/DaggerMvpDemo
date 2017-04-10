@@ -1,11 +1,9 @@
-package com.androidlab.daggermvpdemo.contract;
+package com.androidlab.daggermvpdemo.functions.gankPicture;
 
 import com.androidlab.daggermvpdemo.base.BaseModel;
 import com.androidlab.daggermvpdemo.base.BasePresenter;
 import com.androidlab.daggermvpdemo.base.BaseView;
-import com.androidlab.daggermvpdemo.model.bean.Gank;
-
-import java.util.List;
+import com.androidlab.daggermvpdemo.bean.GankPictureBean;
 
 import rx.Observable;
 
@@ -15,17 +13,17 @@ import rx.Observable;
 
 public interface GankContract {
 
-    interface View extends BaseView<Presenter>{
+    interface View extends BaseView{
 
-        void showGank(Gank mGank);
+        void showGank(GankPictureBean mGank);
 
         void showBigImage(String url);
 
     }
     interface Model extends BaseModel{
-        Observable <Gank>getGank( );
+        Observable <GankPictureBean>getGank( );
     }
-    abstract class Presenter implements BasePresenter{
+    abstract class Presenter extends BasePresenter<View,Model>{
         public abstract void getGank();
 
     }
